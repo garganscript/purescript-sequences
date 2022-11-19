@@ -66,6 +66,7 @@ import Control.Alt (class Alt)
 import Control.Alternative (class Alternative)
 import Control.MonadPlus (class MonadPlus)
 import Control.Plus (class Plus)
+import Data.Array as A
 import Data.Foldable (class Foldable, foldl, foldMap, foldr)
 import Data.Lazy (Lazy(), force)
 import Data.Maybe (Maybe(Just, Nothing))
@@ -99,7 +100,8 @@ instance ordSeq :: (Ord a) => Ord (Seq a) where
   compare (Seq xs) (Seq ys) = FT.compareFingerTree xs ys
 
 instance eqSeq :: (Eq a) => Eq (Seq a) where
-  eq (Seq xs) (Seq ys) = FT.eqFingerTree xs ys
+  eq s1 s2 = eq (A.fromFoldable s1) (A.fromFoldable s2)
+  --eq (Seq xs) (Seq ys) = FT.eqFingerTree xs ys
 
 instance showSeq :: (Show a) => Show (Seq a) where
   show xs = "(Seq.fromFoldable [" <> strJoin "," (toUnfoldable xs) <> "])"
