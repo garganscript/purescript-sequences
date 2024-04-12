@@ -1,0 +1,15 @@
+workspace:
+  packageSet:
+    registry: 50.7.0
+  extraPackages: {}
+
+package:
+  name: sequences
+  dependencies:
+    - prelude: ">=6.0.1 <7.0.0"
+  test:
+    main: Test.Main
+    dependencies:
+      - assert
+      - quickcheck
+      - quickcheck-laws

@@ -1,16 +1,12 @@
 {
   "private": true,
   "devDependencies": {
-    "benchmark": "^2.1.4",
-    "pulp": "^12.3.1"
+    "spago": "^0.93.29"
   },
   "scripts": {
     "postinstall": "bower install",
     "bench": "pulp build -I benchmarks --main Benchmark.Main -O --to output/benchmarks.js && (echo '*' | node output/benchmarks.js)",
     "build": "pulp build",
     "test": "pulp test"
-  },
-  "dependencies": {
-    "spago": "^0.20.9"
   }
 }
